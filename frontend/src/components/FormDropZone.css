@@ -1,0 +1,44 @@
+.form-drop-zone-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text within the container */
+    font-size: 12px;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .form-drop-zone-label {
+    display: flex;
+    flex-direction: column; /* Keep it as column to stack items vertically */
+    align-items: center;
+    text-align: center;
+    justify-content: center; /* Optional: Center items horizontally */
+    margin-bottom: 10px;
+    text-align-last: center;
+  }
+  
+  input::file-selector-button {
+    display:flex;
+    font-weight: bold;
+    color: dodgerblue;
+    padding: 0.5em;
+    margin: 1em;
+    border: thin solid grey;
+    border-radius: 3px;
+  }
+
+  .form-drop-zone-label input {
+    width:115px;
+  }
+  
+
