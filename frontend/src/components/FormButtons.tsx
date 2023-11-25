@@ -15,7 +15,7 @@ export const FormButtons = ({ onCancelClick }: FormButtonsProps) => {
         type="button"
         onClick={onCancelClick}
       >
-        Cancel
+        Reset
       </button>
     </div>
   );
