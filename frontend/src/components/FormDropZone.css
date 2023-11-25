@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center; /* Center items horizontally */
     text-align: center; /* Center text within the container */
-    font-size: 12px;
+    font-size: 0.813rem;
 }
 
 .visually-hidden {
@@ -19,10 +19,10 @@
 
   .form-drop-zone-label {
     display: flex;
-    flex-direction: column; /* Keep it as column to stack items vertically */
+    flex-direction: column;
     align-items: center;
     text-align: center;
-    justify-content: center; /* Optional: Center items horizontally */
+    justify-content: center;
     margin-bottom: 10px;
     text-align-last: center;
   }
@@ -35,10 +35,22 @@
     margin: 1em;
     border: thin solid grey;
     border-radius: 3px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  input::file-selector-button:hover {
+    text-decoration: underline 1px solid dodgerblue;
+
   }
 
   .form-drop-zone-label input {
     width:115px;
   }
   
+  .form-drop-zone-message {
+    padding: 0px 8px;
+    color: #64748b;
+  }
 

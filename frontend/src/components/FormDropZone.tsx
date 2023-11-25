@@ -18,12 +18,14 @@ export const FormDropZone = ({
           className="file-input"
           type="file"
           name="image"
-          accept=".jpeg, .png"
+          accept="image/jpeg, image/png"
           onChange={onFileChange}
           ref={fileInputRef}
         />
       </label>
-      <p>File must be in PNG or JPEG format</p>
+      <p className="form-drop-zone-message">
+        File must be in PNG or JPEG format
+      </p>
     </div>
   );
 };

@@ -12,7 +12,7 @@ export const FormNameInput = ({
 }: FormNameInputProps) => {
   return (
     <label className="form-name-input-label">
-      Image Name:
+      Image Name
       <input
         className="form-name-input-field"
         type="text"
