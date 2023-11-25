@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useRef, useState } from "react";
 import axios from "axios";
 import "./Form.css";
 import { FormDropZone } from "./FormDropZone";
@@ -9,6 +9,8 @@ export const MainContent = () => {
   const [imageName, setImageName] = useState<string>("");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   console.log(imageName, selectedFile);
+
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
     setImageName(event.target.value);
@@ -24,19 +26,15 @@ export const MainContent = () => {
     }
   };
 
-  //do the fetch shiet here
-
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log(event);
 
-    // Check if both imageName and selectedFile are provided
     if (!imageName || !selectedFile) {
       console.error("Name and File are required");
       return;
     }
 
-    // Create a FormData object to send the data as a multipart/form-data
     const formData = new FormData();
     formData.append("name", imageName);
     formData.append("photo", selectedFile);
@@ -46,10 +44,8 @@ export const MainContent = () => {
         "http://localhost:3002/images",
         formData,
         {
-          // Add headers here
           headers: {
             "Content-Type": "multipart/form-data",
-            // Add any other headers if required
           },
         }
       );
@@ -59,22 +55,33 @@ export const MainContent = () => {
       // Optionally, reset the form after a successful submission
       setImageName("");
       setSelectedFile(null);
+
+      // Reset the file input using useRef
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
     } catch (error) {
       console.error("POST Error:", error);
     }
   };
 
-  // end of fetch dshiet here
-
   const handleCancel = () => {
     setImageName("");
     setSelectedFile(null);
+
+    // Reset the file input using useRef
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
   };
 
   return (
     <form onSubmit={handleSubmit} className="form-wrapper">
       <article className="form-drop-zone">
-        <FormDropZone onFileChange={handleFileChange} />
+        <FormDropZone
+          onFileChange={handleFileChange}
+          fileInputRef={fileInputRef}
+        />
       </article>
       <article className="form-name-input">
         <FormNameInput
