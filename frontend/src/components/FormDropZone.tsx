@@ -17,7 +17,7 @@ export const FormDropZone = ({
         <input
           className="file-input"
           type="file"
-          name="image"
+          name="photo"
           accept="image/jpeg, image/png"
           onChange={onFileChange}
           ref={fileInputRef}
