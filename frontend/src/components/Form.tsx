@@ -16,7 +16,6 @@ export const Form = () => {
   const handleSnackbarClose = () => {
     setSnackbarMessage(null);
   };
-  console.log(imageName, selectedFile);
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -38,7 +37,6 @@ export const Form = () => {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(event);
 
     if (!imageName || !selectedFile) {
       console.error("Name and File are required");
