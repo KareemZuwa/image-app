@@ -21,7 +21,7 @@ input::file-selector-button {
   font-weight: bold;
   color: #0891b2;
   padding: 0.5em;
-  margin: 1em;
+  margin: 2px;
   border: thin solid grey;
   border-radius: 3px;
   border: none;

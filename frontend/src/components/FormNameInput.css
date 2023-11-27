@@ -12,3 +12,11 @@
   padding: 10px;
   margin-top: 0.5rem;
 }
+
+@media (max-width: 820px) {
+  .form-name-input-label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4rem;
+  }
+}
