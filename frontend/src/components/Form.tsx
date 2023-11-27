@@ -4,16 +4,25 @@ import "./Form.css";
 import { FormDropZone } from "./FormDropZone";
 import { FormNameInput } from "./FormNameInput";
 import { FormButtons } from "./FormButtons";
+import { Snackbar } from "./Snackbar";
 
-export const MainContent = () => {
+export const Form = () => {
   const [imageName, setImageName] = useState<string>("");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [validationError, setValidationError] = useState<string | null>(null);
+
+  const [snackbarMessage, setSnackbarMessage] = useState<string | null>(null);
+
+  const handleSnackbarClose = () => {
+    setSnackbarMessage(null);
+  };
   console.log(imageName, selectedFile);
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
     setImageName(event.target.value);
+    setValidationError(null);
   };
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -24,6 +33,7 @@ export const MainContent = () => {
     } else {
       setSelectedFile(null);
     }
+    setValidationError(null);
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -32,6 +42,7 @@ export const MainContent = () => {
 
     if (!imageName || !selectedFile) {
       console.error("Name and File are required");
+      setValidationError("Both name and image file are required");
       return;
     }
 
@@ -52,7 +63,8 @@ export const MainContent = () => {
 
       console.log("POST Response:", response.data);
 
-      // Optionally, reset the form after a successful submission
+      setSnackbarMessage("Image uploaded successfully!");
+
       setImageName("");
       setSelectedFile(null);
 
@@ -62,12 +74,14 @@ export const MainContent = () => {
       }
     } catch (error) {
       console.error("POST Error:", error);
+      setSnackbarMessage("Image couldn't be uploaded. Please try again.");
     }
   };
 
   const handleCancel = () => {
     setImageName("");
     setSelectedFile(null);
+    setValidationError(null);
 
     // Reset the file input using useRef
     if (fileInputRef.current) {
@@ -88,8 +102,20 @@ export const MainContent = () => {
           inputValue={imageName}
           onInputChange={handleNameChange}
         />
+        <span className="form-span">
+          {validationError && (
+            <div className="form-validation">{validationError}</div>
+          )}
+        </span>
         <FormButtons onCancelClick={handleCancel} />
       </article>
+      {snackbarMessage && (
+        <Snackbar
+          message={snackbarMessage}
+          onClose={handleSnackbarClose}
+          error={snackbarMessage.toLowerCase().includes("couldn't")}
+        />
+      )}
     </form>
   );
 };

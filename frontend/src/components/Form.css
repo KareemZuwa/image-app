@@ -1,34 +1,55 @@
 .form-wrapper {
-    width: 50%; /* Set the width of the wrapper box */
-    margin: 0 auto;
-    /* display:grid;
+  width: 50%; /* Set the width of the wrapper box */
+  margin: 0 auto;
+  /* display:grid;
     grid-template-columns: repeat(2, minmax(0, 1fr)); */
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    background-color: white;
-    height: 14rem;
-    color: rgb(0 0 0);
-    border-radius: 0.375rem;
-    max-width: 600px;
-    padding: 2rem;
-  }
-
-  .form-drop-zone {
-    height: 100%;
-    width:100%;
-    border-radius: 0.375rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    border: 1px dashed #cbd5e1;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  background-color: white;
+  height: 14rem;
+  color: rgb(0 0 0);
+  border-radius: 0.375rem;
+  max-width: 600px;
+  padding: 2rem;
 }
 
-  .form-name-input {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: end;
+.form-drop-zone {
+  height: 100%;
+  width: 100%;
+  border-radius: 0.375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 1px dashed #cbd5e1;
+}
+
+.form-span {
+  width: 100%;
+}
+.form-validation {
+  color: #dc2626;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.form-success {
+  color: green;
+  animation: fadeOut 5s;
+}
+.form-name-input {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
   }
-  
+  100% {
+    opacity: 0;
+  }
+}

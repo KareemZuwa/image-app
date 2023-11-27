@@ -30,7 +30,7 @@
   input::file-selector-button {
     display:flex;
     font-weight: bold;
-    color: dodgerblue;
+    color: #0891b2;
     padding: 0.5em;
     margin: 1em;
     border: thin solid grey;
@@ -41,7 +41,7 @@
   }
 
   input::file-selector-button:hover {
-    text-decoration: underline 1px solid dodgerblue;
+    text-decoration: underline 1px solid #0891b2;
 
   }
 
