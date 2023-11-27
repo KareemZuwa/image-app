@@ -15,7 +15,6 @@ export const FormDropZone = ({
       <label htmlFor="file-input" className="form-drop-zone-label">
         Image Upload:
         <input
-          className="file-input"
           type="file"
           name="photo"
           accept="image/jpeg, image/png"

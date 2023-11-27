@@ -1,15 +1,14 @@
 .form-name-input-label {
-    font-size: 0.813rem;
-    font-weight: 600;
-    text-align: left;
+  font-size: 0.813rem;
+  font-weight: 600;
+  text-align: left;
 }
 
 .form-name-input-field {
-    border-radius: 0.375rem;
-    width: 11.5rem;
-    height: 1rem;
-    border: 1px solid #cbd5e1;
-    padding: 10px;
-    margin-top: .5rem;
+  border-radius: 0.375rem;
+  width: 11.5rem;
+  height: 1rem;
+  border: 1px solid #cbd5e1;
+  padding: 10px;
+  margin-top: 0.5rem;
 }
-
