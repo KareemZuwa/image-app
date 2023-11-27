@@ -6,8 +6,10 @@ const dropAllCollections = require("./utils/dropAllCollections");
 
 const request = supertest(app);
 
+const timestamp = new Date().toISOString().replace(/[-:T]/g, '').substring(0, 14);
+
 const testImageName = "Test";
-const expectedFilePath = "/img/Test.jpeg";
+const expectedFilePath = `/img/test_${timestamp}.jpeg`;
 
 // Connects to test database
 beforeAll(async () => {
